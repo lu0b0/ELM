@@ -31,7 +31,7 @@ DOCKER_UP() {
     fi
     
     if [ ! -f "/elmmb/elmmb" ]; then
-        wget https://ghproxy.com/https://github.com/lu0b0/releases/download/1.0/elmmb -O /elmmb/elmmb
+        wget https://github.com/lu0b0/releases/download/1.0/elmmb -O /elmmb/elmmb
     fi
     
     if [[ $1 == "" ]]; then
@@ -39,7 +39,9 @@ DOCKER_UP() {
     else
         wget $1 -O /elmmb/Config.json
     fi
-
+	
+	chmod -R 777 /elmmb
+	
     docker build -t='elmmb' .
 }
 
@@ -54,10 +56,10 @@ if [[ ${CONFIRM} == "Y" || ${CONFIRM} == "y" ]];then
 	DOCKER_UP
 fi
 
-read -p "输入容器映射端口: （默认为3000）" CONFIRM
-CONFIRM=${CONFIRM:-"3000"}
-if [[ ${CONFIRM} != "3000" || ${CONFIRM} != "3000" ]];then
-	eval "docker run -dit   -v /elmmb:/etc/elm   -p $CONFIRM:3000   --name elmmb   --hostname elmmb   --restart unless-stopped    --restart always   elmmb:latest"
+read -p "输入容器映射端口: （默认为3000）" pp
+pp=${CONFIRM:-"3000"}
+if [[ ${pp} != "3000" || ${pp} != "3000" ]];then
+	eval "docker run -dit   -v /elmmb:/etc/elm   -p $pp:3000   --name elmmb   --hostname elmmb   --restart unless-stopped    --restart always   elmmb:latest"
 else	
 	eval "docker run -dit   -v /elmmb:/etc/elm   -p 3000:3000   --name elmmb   --hostname elmmb   --restart unless-stopped    --restart always   elmmb:latest"
 fi
