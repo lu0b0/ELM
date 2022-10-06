@@ -31,7 +31,7 @@ DOCKER_UP() {
     fi
     
     if [ ! -f "/elmmb/elmmb" ]; then
-        wget https://github.com/lu0b0/releases/download/1.0/elmmb -O /elmmb/elmmb
+        wget https://ghproxy.com/https://github.com/lu0b0/releases/download/1.0/elmmb -O /elmmb/elmmb
     fi
     
     if [[ $1 == "" ]]; then
