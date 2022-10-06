@@ -56,11 +56,40 @@ if [[ ${CONFIRM} == "Y" || ${CONFIRM} == "y" ]];then
 	DOCKER_UP
 fi
 
-read -p "输入容器映射端口: （默认为3000）" pp
+read -p "输入授权码: " sqm
+sqm=${sqm:-""}
+
+read -p "输入青龙url: 例：http:192.168.0.1" qlurl
+qlurl=${qlurl:-""}
+
+read -p "输入容器CLIENTID: " CLIENTID
+CLIENTID=${CLIENTID:-""}
+
+read -p "输入容器SECRET: " SECRET
+SECRET=${SECRET:-""}
+
+echo "{
+	\"Authorization\":\"$sqm\",
+    \"Title\": \"饿了么\",
+    \"Announcement\": \"公告\",
+    \"Config\": [
+        {
+            \"QLkey\": 1,
+            \"QLName\": \"容器1\",
+            \"QLurl": "$qlurl\",
+            \"QL_CLIENTID\": \"$CLIENTID\",
+            \"QL_SECRET\": \"$SECRET\",
+            \"QL_CAPACITY\": 40
+        }
+    ]
+}" > Config.json
+
+read -p "输入容器映射端口: （回车默认为3000）" pp
 pp=${pp:-"3000"}
 if [[ ${pp} != "3000" || ${pp} != "3000" ]];then
 	eval "docker run -dit   -v /elmmb:/etc/elm   -p $pp:3000   --name elmmb   --hostname elmmb   --restart unless-stopped    --restart always   elmmb:latest"
 else	
 	eval "docker run -dit   -v /elmmb:/etc/elm   -p 3000:3000   --name elmmb   --hostname elmmb   --restart unless-stopped    --restart always   elmmb:latest"
 fi
+
 exit 0
