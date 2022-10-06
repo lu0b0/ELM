@@ -1,0 +1,15 @@
+{
+	"Authorization":"授权码",
+    "Title": "标题",
+    "Announcement": "公告",
+    "Config": [
+        {
+            "QLkey": 1,
+            "QLName": "容器名称",
+            "QLurl": "http://容器url",
+            "QL_CLIENTID": "容器CLIENTID",
+            "QL_SECRET": "容器SECRET",
+            "QL_CAPACITY": 100
+        }
+    ]
+}
