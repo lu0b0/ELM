@@ -57,7 +57,7 @@ if [[ ${CONFIRM} == "Y" || ${CONFIRM} == "y" ]];then
 fi
 
 read -p "输入容器映射端口: （默认为3000）" pp
-pp=${CONFIRM:-"3000"}
+pp=${pp:-"3000"}
 if [[ ${pp} != "3000" || ${pp} != "3000" ]];then
 	eval "docker run -dit   -v /elmmb:/etc/elm   -p $pp:3000   --name elmmb   --hostname elmmb   --restart unless-stopped    --restart always   elmmb:latest"
 else	
