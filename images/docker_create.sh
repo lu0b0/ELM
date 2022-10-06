@@ -76,7 +76,7 @@ echo "{
         {
             \"QLkey\": 1,
             \"QLName\": \"容器1\",
-            \"QLurl\": "$qlurl\",
+            \"QLurl\": \"$qlurl\",
             \"QL_CLIENTID\": \"$CLIENTID\",
             \"QL_SECRET\": \"$SECRET\",
             \"QL_CAPACITY\": 40
