@@ -45,7 +45,7 @@ DOCKER_UP() {
     docker build -t='elmmb' .
 }
 
-echo -e "欢迎使用饿了么登陆面板 Docker一键部署脚本"
+echo -e $"\n欢迎使用饿了么登陆面板 Docker一键部署脚本"
 read -p "输入Y/y确认安装 跳过安装请直接回车:  " CONFIRM
 CONFIRM=${CONFIRM:-"N"}
 if [[ ${CONFIRM} == "Y" || ${CONFIRM} == "y" ]];then
@@ -56,16 +56,16 @@ if [[ ${CONFIRM} == "Y" || ${CONFIRM} == "y" ]];then
 	DOCKER_UP
 fi
 
-read -p "\n 输入授权码: " sqm
+read -p $'\n 输入授权码: ' sqm
 sqm=${sqm:-""}
 
-read -p "\n 输入青龙url: 例：（http:192.168.0.1）：" qlurl
+read -p $'\n 输入青龙url: 例：（http:192.168.0.1）：' qlurl
 qlurl=${qlurl:-""}
 
-read -p "\n 输入容器CLIENTID: " CLIENTID
+read -p $'\n 输入容器CLIENTID: ' CLIENTID
 CLIENTID=${CLIENTID:-""}
 
-read -p "\n 输入容器SECRET: " SECRET
+read -p $'\n 输入容器SECRET: ' SECRET
 SECRET=${SECRET:-""}
 
 echo "{
