@@ -25,19 +25,23 @@ DOCKER_INSTALL() {
 DOCKER_UP() {
     chmod +x /elmmb
     cd /elmmb
+	
+	docker stop elmmb
+	
+	docker rm elmmb
+	
+	docker rmi elmmb
 
     if [ ! -f "/elmmb/Dockerfile" ]; then
         wget https://ghproxy.com/https://raw.githubusercontent.com/lu0b0/ELM/main/images/Dockerfile -O /elmmb/Dockerfile
     fi
     
-    if [ ! -f "/elmmb/elmmb" ]; then
-        wget https://ghproxy.com/https://github.com/lu0b0/ELM/releases/download/1.0/elmmb -O /elmmb/elmmb
-    fi
     
-    if [[ $1 == "" ]]; then
+    wget https://ghproxy.com/https://github.com/lu0b0/ELM/releases/download/1.1/elmmb -O /elmmb/elmmb
+    
+    
+    if [[ ! -f "/elmmb/Config.json"  ]]; then
         wget https://ghproxy.com/https://raw.githubusercontent.com/lu0b0/ELM/main/images/Config.json -O /elmmb/Config.json
-    else
-        wget $1 -O /elmmb/Config.json
     fi
 	
 	chmod -R 777 /elmmb
@@ -56,34 +60,35 @@ if [[ ${CONFIRM} == "Y" || ${CONFIRM} == "y" ]];then
 	DOCKER_UP
 fi
 
-read -p $'\n 输入授权码: ' sqm
-sqm=${sqm:-""}
+if [[ ! -f "/elmmb/Config.json"  ]]; then
+	read -p $'\n 输入授权码: ' sqm
+	sqm=${sqm:-""}
 
-read -p $'\n 输入青龙url: 例：（http:192.168.0.1）：' qlurl
-qlurl=${qlurl:-""}
+	read -p $'\n 输入青龙url: 例：（http:192.168.0.1）：' qlurl
+	qlurl=${qlurl:-""}
 
-read -p $'\n 输入容器CLIENTID: ' CLIENTID
-CLIENTID=${CLIENTID:-""}
+	read -p $'\n 输入容器CLIENTID: ' CLIENTID
+	CLIENTID=${CLIENTID:-""}
 
-read -p $'\n 输入容器SECRET: ' SECRET
-SECRET=${SECRET:-""}
+	read -p $'\n 输入容器SECRET: ' SECRET
+	SECRET=${SECRET:-""}
 
-echo "{
-	\"Authorization\":\"$sqm\",
-    \"Title\": \"饿了么\",
-    \"Announcement\": \"公告\",
-    \"Config\": [
-        {
-            \"QLkey\": 1,
-            \"QLName\": \"容器1\",
-            \"QLurl\": \"$qlurl\",
-            \"QL_CLIENTID\": \"$CLIENTID\",
-            \"QL_SECRET\": \"$SECRET\",
-            \"QL_CAPACITY\": 40
-        }
-    ]
-}" > Config.json
-
+	echo "{
+		\"Authorization\":\"$sqm\",
+		\"Title\": \"饿了么\",
+		\"Announcement\": \"公告\",
+		\"Config\": [
+			{
+				\"QLkey\": 1,
+				\"QLName\": \"容器1\",
+				\"QLurl\": \"$qlurl\",
+				\"QL_CLIENTID\": \"$CLIENTID\",
+				\"QL_SECRET\": \"$SECRET\",
+				\"QL_CAPACITY\": 40
+			}
+		]
+	}" > Config.json
+fi
 read -p "输入容器映射端口: （回车默认为3000）" pp
 pp=${pp:-"3000"}
 if [[ ${pp} != "3000" || ${pp} != "3000" ]];then
