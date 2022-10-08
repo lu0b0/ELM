@@ -40,7 +40,7 @@ DOCKER_UP() {
     wget https://ghproxy.com/https://github.com/lu0b0/ELM/releases/download/1.1/elmmb -O /elmmb/elmmb
     
     
-    if [[ ! -f "/elmmb/Config.json"  ]]; then
+    if [ ! -f "/elmmb/Config.json" ]; then
         wget https://ghproxy.com/https://raw.githubusercontent.com/lu0b0/ELM/main/images/Config.json -O /elmmb/Config.json
     fi
 	
