@@ -49,7 +49,7 @@ DOCKER_UP() {
     docker build -t='elmmb' .
 }
 
-echo -e $"\n欢迎使用饿了么登陆面板 Docker一键部署脚本"
+echo -e $"\n欢迎使用饿了么登陆面板1.1 Docker一键部署脚本"
 read -p "输入Y/y确认安装 跳过安装请直接回车:  " CONFIRM
 CONFIRM=${CONFIRM:-"N"}
 if [[ ${CONFIRM} == "Y" || ${CONFIRM} == "y" ]];then
