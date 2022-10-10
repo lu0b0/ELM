@@ -37,7 +37,7 @@ DOCKER_UP() {
     fi
     
     
-    wget https://ghproxy.com/https://github.com/lu0b0/ELM/releases/download/1.1/elmmb -O /elmmb/elmmb
+    wget https://ghproxy.com/https://github.com/lu0b0/ELM/releases/download/1.2/elmmb -O /elmmb/elmmb
     
     chmod -R 777 /elmmb
 	
@@ -59,7 +59,7 @@ if [[ ! -f "/elmmb/Config.json"  ]]; then
 	read -p $'\n 输入授权码: ' sqm
 	sqm=${sqm:-""}
 
-	read -p $'\n 输入青龙url: 例：（http:192.168.0.1）：' qlurl
+	read -p $'\n 输入青龙url: 例：（http://192.168.0.1:5700）：' qlurl
 	qlurl=${qlurl:-""}
 
 	read -p $'\n 输入容器CLIENTID: ' CLIENTID
