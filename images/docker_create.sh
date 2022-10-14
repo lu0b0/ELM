@@ -44,7 +44,7 @@ DOCKER_UP() {
     docker build -t='elmmb' .
 }
 
-echo -e $"\n欢迎使用饿了么登陆面板1.2 Docker一键部署脚本"
+echo -e $"\n欢迎使用饿了么登陆面板2.1 Docker一键部署脚本"
 read -p "输入Y/y确认安装 跳过安装请直接回车:  " CONFIRM
 CONFIRM=${CONFIRM:-"N"}
 if [[ ${CONFIRM} == "Y" || ${CONFIRM} == "y" ]];then
@@ -55,7 +55,7 @@ if [[ ${CONFIRM} == "Y" || ${CONFIRM} == "y" ]];then
 	DOCKER_UP
 fi
 
-if [[ ! -f "/elmmb/Config.json"  ]]; then
+##if [[ ! -f "/elmmb/Config.json"  ]]; then
 	read -p $'\n 输入授权码: ' sqm
 	sqm=${sqm:-""}
 
@@ -87,7 +87,7 @@ if [[ ! -f "/elmmb/Config.json"  ]]; then
 			}
 		]
 	}" > Config.json
-fi
+##fi
 read -p "输入容器映射端口: （回车默认为3000）" pp
 pp=${pp:-"3000"}
 if [[ ${pp} != "3000" || ${pp} != "3000" ]];then
