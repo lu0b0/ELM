@@ -37,7 +37,7 @@ DOCKER_UP() {
     fi
     
     
-    wget https://ghproxy.com/https://github.com/lu0b0/ELM/releases/download/1.2/elmmb -O /elmmb/elmmb
+    wget https://ghproxy.com/https://github.com/lu0b0/ELM/releases/download/1.3/elmmb -O /elmmb/elmmb
     
     chmod -R 777 /elmmb
 	
@@ -67,11 +67,15 @@ if [[ ! -f "/elmmb/Config.json"  ]]; then
 
 	read -p $'\n 输入容器SECRET: ' SECRET
 	SECRET=${SECRET:-""}
+	
+	read -p $'\n 输入wxpusher推送的app_token (不设置推送按回车): ' wxpusher
+	wxpusher=${wxpusher:-""}
 
 	echo "{
 		\"Authorization\":\"$sqm\",
 		\"Title\": \"饿了么\",
 		\"Announcement\": \"公告\",
+		\"wxpusher_token\":\"$wxpusher\",
 		\"Config\": [
 			{
 				\"QLkey\": 1,
