@@ -1,7 +1,8 @@
 {
-	"Authorization":"授权码",
+    "Authorization":"授权码",
     "Title": "标题",
     "Announcement": "公告",
+    "wxpusher_token":"wxpusher的app_token",
     "Config": [
         {
             "QLkey": 1,
