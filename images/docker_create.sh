@@ -68,7 +68,7 @@ if [[ ! -f "/elmmb/Config.json"  ]]; then
 	read -p $'\n 输入容器SECRET: ' SECRET
 	SECRET=${SECRET:-""}
 	
-	read -p $'\n 输入wxpusher推送的app_token (不设置推送按回车): ' wxpusher
+	read -p $'\n 输入wxpusher推送的app_token 获取地址：https://wxpusher.zjiecode.com/admin (不设置推送按回车): ' wxpusher
 	wxpusher=${wxpusher:-""}
 
 	echo "{
