@@ -80,7 +80,7 @@ CONFIRM=${CONFIRM:-"N"}
 				\"QL_CAPACITY\": 40
 			}
 		]
-	}" > Config.json
+	}" > /elmmb/Config.json
 ##fi
 if [[ ${CONFIRM} == "Y" || ${CONFIRM} == "y" ]];then
 	if [ ! -d "/elmmb" ]; then
