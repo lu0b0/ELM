@@ -37,14 +37,14 @@ DOCKER_UP() {
     fi
     
     
-    wget https://ghproxy.com/https://github.com/lu0b0/ELM/releases/download/2.3/elmmb -O /elmmb/elmmb
+    wget https://ghproxy.com/https://github.com/lu0b0/ELM/releases/download/2.4/elmmb -O /elmmb/elmmb
     
     chmod -R 777 /elmmb
 	
     docker build -t='elmmb' .
 }
 
-echo -e $"\n欢迎使用饿了么登陆面板2.3 Docker一键部署脚本"
+echo -e $"\n欢迎使用饿了么登陆面板2.4 Docker一键部署脚本"
 read -p "输入Y/y确认安装 跳过安装请直接回车:  " CONFIRM
 CONFIRM=${CONFIRM:-"N"}
 
