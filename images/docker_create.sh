@@ -50,6 +50,12 @@ CONFIRM=${CONFIRM:-"N"}
 
 
 ##if [[ ! -f "/elmmb/Config.json"  ]]; then
+	
+##fi
+if [[ ${CONFIRM} == "Y" || ${CONFIRM} == "y" ]];then
+	if [ ! -d "/elmmb" ]; then
+		mkdir /elmmb
+	fi
 	read -p $'\n 输入授权码: ' sqm
 	sqm=${sqm:-""}
 
@@ -81,11 +87,6 @@ CONFIRM=${CONFIRM:-"N"}
 			}
 		]
 	}" > /elmmb/Config.json
-##fi
-if [[ ${CONFIRM} == "Y" || ${CONFIRM} == "y" ]];then
-	if [ ! -d "/elmmb" ]; then
-		mkdir /elmmb
-	fi
 	DOCKER_INSTALL
 	DOCKER_UP
 fi
