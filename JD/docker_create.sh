@@ -86,7 +86,7 @@ if [[ ${CONFIRM} == "Y" || ${CONFIRM} == "y" ]];then
 				\"QL_CAPACITY\": 999
 			}
 		]
-	}" > /lb/Config.json
+	}" > /radish/Config.json
 	DOCKER_INSTALL
 	DOCKER_UP
 fi
