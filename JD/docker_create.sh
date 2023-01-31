@@ -23,8 +23,8 @@ DOCKER_INSTALL() {
 
 
 DOCKER_UP() {
-    chmod +x /lb
-    cd /lb
+    chmod +x /radish
+    cd /radish
 	
 	docker stop radish
 	
@@ -32,12 +32,12 @@ DOCKER_UP() {
 	
 	docker rmi radish
 
-    if [ ! -f "/lb/Dockerfile" ]; then
-        wget https://ghproxy.com/https://raw.githubusercontent.com/lu0b0/ELM/main/JD/Dockerfile -O /lb/Dockerfile
+    if [ ! -f "/radish/Dockerfile" ]; then
+        wget https://ghproxy.com/https://raw.githubusercontent.com/lu0b0/ELM/main/JD/Dockerfile -O /radish/Dockerfile
     fi
     
     
-    wget https://ghproxy.com/https://github.com/lu0b0/ELM/releases/download/3.0/radish -O /lb/radish
+    wget https://ghproxy.com/https://github.com/lu0b0/ELM/releases/download/3.0/radish -O /radish/radish
     
     chmod -R 777 /radish
 	
@@ -49,7 +49,7 @@ read -p "输入Y/y确认安装 跳过安装请直接回车:  " CONFIRM
 CONFIRM=${CONFIRM:-"N"}
 
 
-##if [[ ! -f "/lb/Config.json"  ]]; then
+##if [[ ! -f "/radish/Config.json"  ]]; then
 	
 ##fi
 if [[ ${CONFIRM} == "Y" || ${CONFIRM} == "y" ]];then
@@ -93,9 +93,9 @@ fi
 read -p "输入容器映射端口: （回车默认为3001）" pp
 pp=${pp:-"3001"}
 if [[ ${pp} != "3001" || ${pp} != "3001" ]];then
-	eval "docker run -dit   -v /radish:/etc/lb   -p $pp:3001   --name elmmb   --hostname radish   --restart unless-stopped    --restart always   radish:latest"
+	eval "docker run -dit   -v /radish:/etc/lb   -p $pp:3001   --name radish   --hostname radish   --restart unless-stopped    --restart always   radish:latest"
 else	
-	eval "docker run -dit   -v /radish:/etc/lb   -p 3001:3001   --name elmmb   --hostname radish   --restart unless-stopped    --restart always   radish:latest"
+	eval "docker run -dit   -v /radish:/etc/lb   -p 3001:3001   --name radish   --hostname radish   --restart unless-stopped    --restart always   radish:latest"
 fi
 
 exit 0
