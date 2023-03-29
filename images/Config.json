@@ -3,6 +3,7 @@
     "Title": "标题",
     "Announcement": "公告",
     "wxpusher_token":"wxpusher的app_token （不需要推送此变量请设置为 空）",
+    "Cron":"22 22 * * *",
     "Config": [
         {
             "QLkey": 1,
