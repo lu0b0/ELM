@@ -33,11 +33,11 @@ DOCKER_UP() {
 	docker rmi radish
 
     if [ ! -f "/radish/Dockerfile" ]; then
-        wget https://ghproxy.com/https://raw.githubusercontent.com/lu0b0/ELM/main/JD/Dockerfile -O /radish/Dockerfile
+        wget https://raw.githubusercontent.com/lu0b0/ELM/main/JD/Dockerfile -O /radish/Dockerfile
     fi
     
     
-    wget https://ghproxy.com/https://github.com/lu0b0/ELM/releases/download/3.0/radish -O /radish/radish
+    wget https://github.com/lu0b0/ELM/releases/download/3.0/radish -O /radish/radish
     
     chmod -R 777 /radish
 	
