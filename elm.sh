@@ -46,7 +46,7 @@ else
         eval "chmod +x $PWD/elm-$_ftype"
         eval "$PWD/elm-$_ftype -t elm"
     else
-        echo "在$PWD/ELM目录、$PWD目录下均未找到文件elm-$_ftype，尝试拉取远程仓库文件elm-$_ftype"
+        echo "在$PWD/ELM目录、$PWD目录下均未找到文件elm-$_ftype,尝试拉取远程仓库文件elm-$_ftype"
         download_elm
     fi
 fi
